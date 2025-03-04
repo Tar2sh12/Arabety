@@ -18,4 +18,12 @@ export class User {
     logInsertedUser(){
         console.log(`User with id ${this.id} was inserted`);
     }
+    @AfterRemove()
+    logRemovedUser(){
+        console.log(`User with email ${this.email} was removed`);
+    }
+    @AfterUpdate()
+    logUpdatedUser(){
+        console.log(`User with id ${this.id} was updated`);
+    }
 }
