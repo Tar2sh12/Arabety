@@ -57,4 +57,5 @@ report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 
 
 #database
-/db.sqlite
+/db1.sqlite
+/db2.sqlite

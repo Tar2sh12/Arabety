@@ -3,6 +3,8 @@ import {BeforeUpdate,BeforeRemove, BeforeInsert, AfterUpdate,AfterRemove,AfterIn
 //    |
 //    v
 // BeforeUpdate,BeforeRemove, BeforeInsert, AfterUpdate,AfterRemove,AfterInsert,
+
+import { Exclude } from "class-transformer";
 @Entity()
 export class User {
     @PrimaryGeneratedColumn()
@@ -11,7 +13,8 @@ export class User {
     @Column()
     email:string;
 
-    @Column()
+    @Column() 
+    @Exclude()
     password:string;
 
     @AfterInsert()

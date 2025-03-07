@@ -9,7 +9,7 @@ import { Report } from './modules/reports/report.entity';
 @Module({
   imports: [TypeOrmModule.forRoot({
     type: 'sqlite',
-    database: 'db.sqlite',
+    database: 'db2.sqlite',
     entities: [User,Report],
     synchronize: true,
   }),UsersModule, ReportsModule],
