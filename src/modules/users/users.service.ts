@@ -17,29 +17,18 @@ export class UsersService {
     }
     async findOne(id:number){
         const user = await this.repo.findOne({where:{id}});
-        const returnUserObject = {
-            email:user.email,
-            password:user.password
-        }
-        return returnUserObject;
+        return user;
     }
     async update(id:number , attrs:UpdateUserDto){
         const user =await this.repo.findOne({where:{id}});
         if(!user){
             throw new NotFoundException('user not found');
         }
-
-
         // override all the properties of the user with the new properties in attrs
         Object.assign(user,attrs);
-        
-        
+
         await this.repo.save(user);
-        const returnUserObject = {
-            email:user.email,
-            password:user.password
-        }
-        return returnUserObject;
+        return user;
     }
     async remove(id:number){
         const user = await this.repo.findOne({where:{id}});
@@ -47,10 +36,7 @@ export class UsersService {
             throw new NotFoundException('user not found');
         }
         const deletedUser = await this.repo.remove(user);
-        return {
-            message : "user deleted successfully",
-            user:deletedUser
-        }
+        return deletedUser;
 
     }
 }
