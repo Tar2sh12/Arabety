@@ -12,8 +12,8 @@ export class UsersService {
         const user = this.repo.create({email,password});//creating user instance
         return this.repo.save(user);
     }
-    findByEmail(email: string) {
-        return this.repo.find({ where: { email } });
+    findByEmail = async (email: string) => {
+        return await this.repo.find({ where: { email } });
     }
     async findOne(id:number){
         const user = await this.repo.findOne({where:{id}});
